@@ -1,12 +1,15 @@
 import "dotenv/config"
 import express from 'express'
+import cors from express
 
 const app = express()
 const PORT = process.env.PORT || 5000
 
-// app.get("/", (req, res)=>{
-//     res.send("Welcome")    
-// })
+app.use(cors())
+
+app.get("/", (req, res)=>{
+    res.send("Welcome")    
+})
 
 app.get("/api/users", (req, res) => {
   const users = [
